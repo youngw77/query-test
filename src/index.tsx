@@ -1,16 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import { QueryClient, QueryClientProvider, QueryCache } from 'react-query';
+import { createRoot } from 'react-dom/client'; // Update the import statement here
+
+const queryClient =  new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error, query) => {
+      console.log('onError', error);
+    },
+    onSuccess: (data) => {
+      console.log('onSuccess', data);
+    }
+  })
+});
+
+// Use createRoot instead of ReactDOM.createRoot
+const rootElement:any = document.getElementById('root');
+const root = createRoot(rootElement);
+
+// Use root.render instead of ReactDOM.render
 root.render(
-  <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
     <App />
-  </React.StrictMode>
+  </QueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
