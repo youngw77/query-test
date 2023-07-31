@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -17,6 +15,7 @@ const queryClient =  new QueryClient({
     }
   })
 });
+console.log(queryClient);
 
 // Use createRoot instead of ReactDOM.createRoot
 const rootElement:any = document.getElementById('root');
