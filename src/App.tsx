@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useQuery } from "react-query";
+import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import TodoList from './TodoList';
 import { BrowserRouter } from "react-router-dom";

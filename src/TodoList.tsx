@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
@@ -10,7 +9,6 @@ interface todoItem {
 
 const TodoList = () => {
   const [todo, setTodo] = useState<todoItem[]>([]);
-  const navigate = useNavigate();
 
   const { isSuccess, isError, isLoading, isFetching, data, error } = useQuery(
     "getTodoList",
